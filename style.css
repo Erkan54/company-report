@@ -1,0 +1,162 @@
+/* ===== Design tokens ===== */
+.root {
+    -fx-font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+
+    -fx-brand: #2563eb;                 /* mavi aksan */
+    -fx-bg:    #f5f7fb;
+    -fx-card:  #ffffff;
+    -fx-line:  rgba(15,23,42,0.08);
+    -fx-muted: #475569;
+
+    /* sınıf renkleri */
+    -fx-s1:    #0b1e5b;                 /* lacivert (1. sınıf) */
+    -fx-s2:    #fbd724;                 /* parlak sarı (2. sınıf) */
+}
+
+/* üst bar */
+.topbar { -fx-background-color: transparent; }
+
+/* buton – flat/modern */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #1d4ed8, #2563eb);
+    -fx-text-fill: white;
+    -fx-font-weight: 600;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-padding: 8 14 8 14;
+    -fx-effect: dropshadow(gaussian, rgba(2,6,23,0.18), 10, 0.3, 0, 4);
+}
+.button:hover { -fx-background-color: linear-gradient(to bottom, #1e40af, #1d4ed8); }
+
+/* Sağ üst tarih etiketi */
+.today-label {
+    -fx-background-color: rgba(255,255,255,0.75);
+    -fx-background-radius: 10;
+    -fx-border-color: -fx-line;
+    -fx-border-radius: 10;
+    -fx-padding: 6 12;
+    -fx-font-weight: 700;
+    -fx-text-fill: #0f172a;
+}
+
+/* Board (grid arka kart) */
+.board {
+    -fx-background-color: rgba(255,255,255,0.7);
+    -fx-background-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(2,6,23,0.12), 24, 0.3, 0, 8);
+    -fx-border-color: rgba(15,23,42,0.06);
+    -fx-border-radius: 16;
+}
+
+/* Gün başlıkları */
+.day-header {
+    -fx-background-color: transparent;
+    -fx-text-fill: #0f172a;
+    -fx-font-weight: 700;
+    -fx-alignment: center;
+    -fx-padding: 6 0 10 0;
+    -fx-border-color: -fx-line transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* Saat chip – ghost */
+.hour-badge {
+    -fx-background-color: rgba(255,255,255,0.65);
+    -fx-text-fill: #0f172a;
+    -fx-font-weight: 600;
+    -fx-background-radius: 999;
+    -fx-padding: 8 14;
+    -fx-alignment: center;
+    -fx-border-color: -fx-line;
+    -fx-border-radius: 999;
+}
+
+/* Hücre – düz, modern */
+.cell {
+    -fx-background-color: -fx-card;
+    -fx-text-fill: #111827;
+    -fx-border-color: -fx-line;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-padding: 10;
+    -fx-font-size: 12px;
+}
+
+/* Dolu hücre – hafif tint */
+.cell-filled {
+    -fx-background-color:
+        linear-gradient(to right, rgba(2,6,23,0.04) 0%, transparent 12%),
+        -fx-card;
+    -fx-background-insets: 0, 0;
+}
+
+/* 1. sınıf: sol LACİVERT şerit + hafif ton */
+.cell.cell-s1 {
+    -fx-border-color: -fx-line -fx-line -fx-line -fx-s1;
+    -fx-border-width: 1 1 1 6;
+    -fx-background-color:
+        linear-gradient(to right, rgba(11,30,91,0.10) 0%, transparent 14%),
+        -fx-card;
+    -fx-background-insets: 0, 0;
+}
+
+/* 2. sınıf: sol PARLAK SARI şerit + hafif ton */
+.cell.cell-s2 {
+    -fx-border-color: -fx-line -fx-line -fx-line -fx-s2;
+    -fx-border-width: 1 1 1 6;
+    -fx-background-color:
+        linear-gradient(to right, rgba(251,215,36,0.26) 0%, transparent 16%),
+        -fx-card;
+    -fx-background-insets: 0, 0;
+}
+
+/* Her iki sınıf: dışta lacivert, içeride 3px parlak sarı ikinci şerit */
+.cell.cell-both {
+    -fx-border-color: -fx-line -fx-line -fx-line -fx-s1; /* dış şerit */
+    -fx-border-width: 1 1 1 6;
+    -fx-background-color:
+        linear-gradient(to right, -fx-s2 0%, -fx-s2 3%, transparent 3%), /* iç sarı 3px */
+        linear-gradient(to right, rgba(2,6,23,0.04) 0%, transparent 14%), /* hafif tint */
+        -fx-card;
+    -fx-background-insets: 0, 0, 0;
+}
+
+/* Saat satırı highlight overlay (FX layer'a eklediğimiz dikdörtgen) */
+.row-highlight {
+    -fx-fill: linear-gradient(to right,
+              rgba(37,99,235,0.12) 0%,
+              rgba(37,99,235,0.06) 100%);
+}
+
+/* Dialog – sade */
+.dialog-pane {
+    -fx-background-color: -fx-card;
+    -fx-background-radius: 12;
+    -fx-border-color: -fx-line;
+    -fx-border-radius: 12;
+}
+.dialog-pane .label {
+    -fx-text-fill: #111827;
+    -fx-font-size: 14px;
+}
+
+/* Legend */
+.legend { -fx-alignment: center-left; }
+.legend-chip {
+    -fx-alignment: center;             /* dikey ortalı */
+    -fx-background-color: rgba(255,255,255,0.75);
+    -fx-background-radius: 999;
+    -fx-border-color: -fx-line;
+    -fx-border-radius: 999;
+    -fx-padding: 6 12;
+    -fx-font-weight: 600;
+    -fx-text-fill: #0f172a;
+}
+
+/* Tab başlıklarını kesinlikle gizle */
+.tab-pane > .tab-header-area {
+    -fx-max-height: 0;
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    visibility: hidden;
+}
